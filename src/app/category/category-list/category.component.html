@@ -1,0 +1,18 @@
+<!--<ul class="categories">-->
+<!--<li *ngFor="let category of categories">-->
+<!--<a>-->
+<!--<span class="badge">{{category.name}}</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--</ul>-->
+
+<div class="list-group">
+  <div *ngFor="let category of categories">
+    <a href="#" class="list-group-item list-group-item-action align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-3">{{category.name}}</h4>
+      </div>
+      <p class="mb-1">{{category.description}}</p>
+    </a>
+  </div>
+</div>
