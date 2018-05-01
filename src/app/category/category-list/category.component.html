@@ -1,18 +1,19 @@
-<!--<ul class="categories">-->
-<!--<li *ngFor="let category of categories">-->
-<!--<a>-->
-<!--<span class="badge">{{category.name}}</span>-->
-<!--</a>-->
-<!--</li>-->
-<!--</ul>-->
-
 <div class="list-group">
   <div *ngFor="let category of categories">
-    <a href="#" class="list-group-item list-group-item-action align-items-start">
-      <div class="d-flex w-100 justify-content-between">
+
+    <div class="list-group-item list-group-item-action align-items-start d-flex flex-column justify-content-between">
+      <a routerLink="/questions/{{category.id}}" class="d-flex w-100 list-group-item-action align-items-start">
         <h4 class="mb-3">{{category.name}}</h4>
+      </a>
+      <div class="d-flex list-group-item-action align-items-start justify-content-between">
+        <p class="mb-1">{{category.description}}</p>
+        <button type="button" class="btn btn-outline-dark" (click)="deleteCategory(category)">Delete</button>
       </div>
-      <p class="mb-1">{{category.description}}</p>
-    </a>
+    </div>
   </div>
+  <a routerLink="/category-new" class="bg-secondary text-white list-group-item list-group-item-action align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-3">Dodaj kategorie</h4>
+    </div>
+  </a>
 </div>

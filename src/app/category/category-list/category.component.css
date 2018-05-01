@@ -1,0 +1,9 @@
+button {
+  float: right;
+  position: inherit;
+}
+
+.onRight {
+  float: right;
+  position: inherit;
+}

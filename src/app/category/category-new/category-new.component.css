@@ -1,0 +1,12 @@
+h3 {
+    color: #818181;
+    margin: auto;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+button {
+  margin-top: 40px;
+  float: right;
+  position: inherit;
+}

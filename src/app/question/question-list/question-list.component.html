@@ -1,0 +1,17 @@
+<div class="list-group">
+  <div *ngFor="let question of questions">
+    <a class="list-group-item list-group-item-action align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-3">{{question.answer}}</h4>
+        <button type="button" class="btn btn-outline-dark" (click)="deleteQuestion(question)">Delete</button>
+      </div>
+      <p class="mb-1">{{question.question}}</p>
+    </a>
+  </div>
+  <a class="bg-secondary text-white list-group-item list-group-item-action align-items-start">
+    <div (click)="createQuestion()" class="d-flex w-100 justify-content-between">
+      <h4 class="mb-3">Dodaj pytanie</h4>
+    </div>
+  </a>
+  <ngx-loading [show]="backendCallInProgress" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+</div>
