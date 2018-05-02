@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Category } from './category';
+import { Category, EditCategory } from './category';
 import { log, print } from 'util';
 import { map, tap } from 'rxjs/operators';
 
@@ -13,8 +13,6 @@ const httpOptions = {
 export class CategoryService {
 
   private getCategoriesUrl = 'http://localhost:8080/categories';
-  private getCreateCategoryUrl = 'http://localhost:8080/categories';
-  private getDeleteCategoryUrl = 'http://localhost:8080/categories';
 
   constructor(private http: HttpClient) {
   }
@@ -27,15 +25,26 @@ export class CategoryService {
       );
   }
 
+  getCategory(id: number): Observable<Category> {
+    return this.http.get<any>(this.getCategoriesUrl + '/' + id, httpOptions)
+      .pipe(
+        map(response => <Category>JSON.parse(JSON.stringify(response)))
+      );
+  }
+
+  editCategory(id: number, request: EditCategory): Observable<any> {
+    return this.http.put<any>(this.getCategoriesUrl + '/' + id, request, httpOptions);
+  }
+
   save(category: Category): Observable<Category> {
-    return this.http.post<Category>(this.getCreateCategoryUrl, category, httpOptions)
+    return this.http.post<Category>(this.getCategoriesUrl, category, httpOptions)
       .pipe(
         map(response => <Category>JSON.parse(JSON.stringify(response)))
       );
   }
 
   delete(category: Category): Observable<any> {
-    return this.http.delete(this.getDeleteCategoryUrl + '/' + category.id, httpOptions);
+    return this.http.delete(this.getCategoriesUrl + '/' + category.id, httpOptions);
   }
 
 }

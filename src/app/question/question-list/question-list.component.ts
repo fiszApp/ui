@@ -1,3 +1,4 @@
+import { CategoryCommonService } from './../../commons/category/category-common.service';
 import { QuestionService } from './../question.service';
 import { Category } from './../../commons/category/category';
 import { Component, OnInit, Input } from '@angular/core';
@@ -15,9 +16,12 @@ export class QuestionListComponent implements OnInit {
 
   private id?: number;
 
+  public categoryName?: string;
+
   questions: Question[];
 
-  constructor(private questionService: QuestionService, private route: ActivatedRoute, private router: Router) {
+  constructor(private questionService: QuestionService, private route: ActivatedRoute, private router: Router,
+    private categoryService: CategoryCommonService) {
   }
 
   ngOnInit() {
@@ -26,6 +30,7 @@ export class QuestionListComponent implements OnInit {
       this.id = +id;
     }
     this.setQuestions();
+    this.setName();
   }
 
   setQuestions(): void {
@@ -45,6 +50,14 @@ export class QuestionListComponent implements OnInit {
     }
   }
 
+  setName() {
+    if (this.id != null) {
+      this.categoryService.getCategory(this.id).subscribe(category => {
+        this.categoryName = category.name;
+      });
+    }
+  }
+
   createQuestion(): void {
     if (this.id != null) {
       this.router.navigateByUrl('/question-new/' + this.id);
@@ -60,6 +73,10 @@ export class QuestionListComponent implements OnInit {
       this.setQuestions();
       setTimeout(30000);
     });
+  }
+
+  editQuestion(question: Question): void {
+    this.router.navigateByUrl('/question-edit/' + question.id);
   }
 
 }

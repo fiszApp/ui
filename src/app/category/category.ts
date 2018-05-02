@@ -9,3 +9,11 @@ export interface Category {
   description?: string;
 
 }
+
+export interface EditCategory {
+
+  name?: string;
+
+  description?: string;
+
+}

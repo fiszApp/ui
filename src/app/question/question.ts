@@ -31,3 +31,13 @@ export interface CreateQuestion {
   categoryId?: number;
 
 }
+
+export interface EditQuestion {
+
+  question?: string;
+
+  answer?: string;
+
+  categoryId?: number;
+
+}

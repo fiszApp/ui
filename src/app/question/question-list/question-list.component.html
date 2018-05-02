@@ -1,9 +1,13 @@
+<h3 class="align-center">{{categoryName}}</h3>
 <div class="list-group">
   <div *ngFor="let question of questions">
     <a class="list-group-item list-group-item-action align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h4 class="mb-3">{{question.answer}}</h4>
-        <button type="button" class="btn btn-outline-dark" (click)="deleteQuestion(question)">Delete</button>
+        <div>
+          <button type="button" class="btn btn-outline-dark lm-3 rm-3" (click)="deleteQuestion(question)">Delete</button>
+          <button type="button" class="btn btn-outline-dark lm-3 rm-3" (click)="editQuestion(question)">Edit</button>
+        </div>
       </div>
       <p class="mb-1">{{question.question}}</p>
     </a>

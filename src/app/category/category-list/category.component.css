@@ -1,6 +1,8 @@
 button {
   float: right;
   position: inherit;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .onRight {

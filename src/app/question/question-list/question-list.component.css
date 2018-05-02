@@ -1,4 +1,19 @@
 button {
   float: right;
   position: inherit;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.onRight {
+  float: right;
+  position: inherit;
+}
+
+h3 {
+    color: #818181;
+    margin: auto;
+    width: 95%;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }

@@ -33,10 +33,12 @@ export class CategoryComponent implements OnInit {
   deleteCategory(category: Category): void {
     this.backendCallInProgress = true;
     this.categoryService.delete(category).subscribe(answer => {
-      setTimeout(30000);
       this.setCategories();
-      setTimeout(30000);
     });
+  }
+
+  editCategory(category: Category): void {
+    this.router.navigateByUrl('/category-edit/' + category.id);
   }
 
 }

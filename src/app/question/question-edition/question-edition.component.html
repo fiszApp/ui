@@ -1,0 +1,25 @@
+<form [formGroup]="editQuestionFormGroup" class="mt-4 ml-5">
+  <h3 class="align-center">Edit question</h3>
+  <div class="container col2">
+    <div class="form-group col-md-4">
+      <label for="editQuestionQuestion">Question</label>
+      <input type="text" formControlName="question" class="form-control" id="editQuestionQuestion">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="editQuestionAnswer">Answer</label>
+      <textarea rows="2" formControlName="answer" class="form-control" id="editQuestionAnswer"></textarea>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="editQuestionCategory">Category</label>
+      <select formControlName="categoryId" class="select form-control" id="editQuestionCategory">
+        <option *ngFor="let category of categories" [value]="category.id" selected="category.id === categoryId">
+          {{category != null ? category.name : null}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-outline-dark" [disabled]="isDisabled()" (click)="editQuestion()">Edit</button>
+    </div>
+  </div>
+  <ngx-loading [show]="backendCallInProgress" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+</form>

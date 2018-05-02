@@ -1,3 +1,5 @@
+import { QuestionEditionComponent } from './question/question-edition/question-edition.component';
+import { CategoryEditionComponent } from './category/category-edition/category-edition.component';
 import { QuestionNewComponent } from './question/question-new/question-new.component';
 import { CategoryNewComponent } from './category/category-new/category-new.component';
 import { QuestionListComponent } from './question/question-list/question-list.component';
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'questions', component: QuestionListComponent },
   { path: 'category-new', component: CategoryNewComponent },
   { path: 'question-new', component: QuestionNewComponent },
-  { path: 'question-new/:categoryId', component: QuestionNewComponent }
+  { path: 'question-new/:categoryId', component: QuestionNewComponent },
+  { path: 'category-edit/:categoryId', component: CategoryEditionComponent },
+  { path: 'question-edit/:questionId', component: QuestionEditionComponent }
 ];
 
 @NgModule({

@@ -7,7 +7,10 @@
       </a>
       <div class="d-flex list-group-item-action align-items-start justify-content-between">
         <p class="mb-1">{{category.description}}</p>
-        <button type="button" class="btn btn-outline-dark" (click)="deleteCategory(category)">Delete</button>
+        <div>
+          <button type="button" class="btn btn-outline-dark lm-3 rm-3" (click)="deleteCategory(category)">Delete</button>
+          <button type="button" class="btn btn-outline-dark lm-3 rm-3" (click)="editCategory(category)">Edit</button>
+        </div>
       </div>
     </div>
   </div>

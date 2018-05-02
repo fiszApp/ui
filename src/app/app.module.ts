@@ -1,3 +1,4 @@
+import { CategoryCommonService } from './commons/category/category-common.service';
 import { QuestionService } from './question/question.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { CategoryNewComponent } from './category/category-new/category-new.compo
 import { LoadingModule } from 'ngx-loading';
 import { QuestionNewComponent } from './question/question-new/question-new.component';
 import { CommonModule } from '@angular/common';
+import { QuestionEditionComponent } from './question/question-edition/question-edition.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { CommonModule } from '@angular/common';
     QuestionListComponent,
     CategoryEditionComponent,
     CategoryNewComponent,
-    QuestionNewComponent
+    QuestionNewComponent,
+    QuestionEditionComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { CommonModule } from '@angular/common';
     LoadingModule
   ],
   providers: [CategoryService,
-    QuestionService],
+    QuestionService,
+    CategoryCommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
